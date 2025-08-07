@@ -5,8 +5,8 @@
 
         <!--The file where mod information which is required for publishing mod on PDX mods are stored-->
         <PublishConfigurationPath>Properties\PublishConfiguration.xml</PublishConfigurationPath>
-        <Version>1.0.1</Version>
-        <TargetFramework>net472</TargetFramework>
+        <Version>1.0.2</Version>
+        <TargetFrameworks>net48;net472</TargetFrameworks>
     </PropertyGroup>
 
     <!--Imports must be after PropertyGroup block-->
