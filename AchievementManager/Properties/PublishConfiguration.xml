@@ -9,7 +9,9 @@
     <!--LongDescription Value="This is a long description" /-->
     <LongDescription>
 #THIS CURRENTLY DOES NOT ADD THE ABILITY TO EARN ACHIEVEMENTS PLEASE USE THE ACHIEVMENT ENABLER MOD FOR THIS FUNCTIONALITY
+
 *AchievementManager is a mod for Cities: Skylines that allows you to manage every Achievement in the game.
+
 *We will later add the functionality for enabling to get achievements with mods at a later point.
     </LongDescription>
     <!--Thumbnail-->
@@ -21,7 +23,7 @@
     <!--Link to the forum post where the mod can be discussed-->
     <ForumLink Value=""/>
     <!--Version of the mod-->
-    <ModVersion Value="1.0.2"/>
+    <ModVersion Value="1.0.3"/>
     <!--Recommended version of the base game to use the mod-->
     <GameVersion Value="1.*.*"/>
     <!--Dependency for the mod, can be set multiple times-->
