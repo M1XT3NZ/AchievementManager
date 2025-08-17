@@ -3,24 +3,30 @@ using System.Linq;
 using Colossal;
 using Colossal.IO.AssetDatabase;
 using Colossal.PSI.Common;
+using Game.Achievements;
 using Game.Modding;
 using Game.Settings;
 using Game.UI.Widgets;
+using UnityEngine;
 
 namespace AchievementManager
 {
     [FileLocation("ModsSettings/AchievementManager/")]
     public class AchievementManagerSettings : ModSetting
     {
+        private int _achivementmaxprogres = 5;
+        private int _achivementminprogres = 0;
+        private bool _isprogress = false;
+
         public AchievementManagerSettings(IMod mod) : base(mod)
         {
             SetDefaults();
         }
 
         [SettingsUIDropdown(typeof(AchievementManagerSettings), nameof(GetAchievementDropdownItems))]
-        public string SelectedAchievementKey { get; set; } = "First";
+        public string SelectedAchievementKey { get; set; } = "MyFirstCity";
 
-        public IAchievement SelectedAchievement =>
+        private IAchievement SelectedAchievement =>
             PlatformManager.instance.EnumerateAchievements()
                 .FirstOrDefault(a => a.internalName == SelectedAchievementKey);
 
@@ -36,6 +42,161 @@ namespace AchievementManager
         public bool ResetAchievements
         {
             set => PlatformManager.instance.ResetAchievements();
+        }
+
+        [SettingsUIButton]
+        public bool UnlockAllAchievements
+        {
+            set
+            {
+                foreach (var achievement in PlatformManager.instance.EnumerateAchievements())
+                {
+                    if (achievement.isIncremental)
+                    {
+                        // Set the progress to the maximum for incremental achievements
+                        PlatformManager.instance.IndicateAchievementProgress(achievement.id, achievement.maxProgress,
+                            IndicateType.Absolute);
+                    }
+                    else
+                    {
+                        // Unlock non-incremental achievements
+                        PlatformManager.instance.UnlockAchievement(achievement.id);
+                    }
+                }
+            }
+        }
+
+        // [SettingsUIHideByCondition(typeof(AchievementManagerSettings), nameof(_isprogress))]
+        // [SettingsUISlider(min = 0, max = 24000000, step = 1)]
+        // public int AchievementProgress { get; set; }
+        //
+        // [SettingsUIButton]
+        // public bool SetAchievementProgress
+        // {
+        //     set 
+        //     {
+        //         if (SelectedAchievement != null && _isprogress)
+        //         {
+        //             if (SelectedAchievement.maxProgress != AchievementProgress)
+        //             {
+        //                 // Ensure the progress is within the defined min and max range
+        //                 AchievementProgress = Mathf.Clamp(AchievementProgress, 0, SelectedAchievement.maxProgress);
+        //                 // Set the progress for the selected achievement
+        //                 PlatformManager.instance.IndicateAchievementProgress(SelectedAchievement.id, AchievementProgress);
+        //             }
+        //             else
+        //             {
+        //                 Debug.LogWarning($"Achievement {SelectedAchievement.internalName} already has the maximum progress of {SelectedAchievement.maxProgress}.");
+        //             }
+        //             // Ensure the progress is within the defined min and max range
+        //             if(SelectedAchievement.isIncremental)
+        //                 PlatformManager.instance.IndicateAchievementProgress(SelectedAchievement.id,AchievementProgress, IndicateType.Absolute);
+        //             
+        //             
+        //         }
+        //     }
+        // }
+
+
+        //We want to be able to edit the dropdown items individually so that means
+        //if there is an Achievement like "Making a Mark" which is 0 out of 5
+        //we can set it to any value we want out of the 5
+        private void Test()
+        {
+            foreach (var field in typeof(Achievements).GetFields())
+                
+                switch (field.Name)
+                {
+                    case "MyFirstCity":
+                        break;
+                    case "TheInspector":
+                        break;
+                    case "HappytobeofService":
+                        break;
+                    case "RoyalFlush":
+                        break;
+                    case "KeyToTheCity":
+                        break;
+                    case "SixFigures":
+                        break;
+                    case "GoAnywhere":
+                        break;
+                    case "TheSizeOfGolfBalls":
+                        break;
+                    case "OutforaSpin":
+                        break;
+                    case "NowTheyreAllAshTrees":
+                        break;
+                    case "ZeroEmission":
+                        break;
+                    case "UpAndAway":
+                        break;
+                    case "MakingAMark":
+                        break;
+                    case "EverythingTheLightTouches":
+                        break;
+                    case "CallingtheShots":
+                        break;
+                    case "WideVariety":
+                        break;
+                    case "ExecutiveDecision":
+                        break;
+                    case "AllSmiles":
+                        break;
+                    case "YouLittleStalker":
+                        break;
+                    case "IMadeThis":
+                        break;
+                    case "Cartography":
+                        break;
+                    case "TheExplorer":
+
+                        break;
+                    case "TheLastMileMarker":
+                        break;
+                    case "FourSeasons":
+                        break;
+                    case "Spiderwebbing":
+                        break;
+                    case "Snapshot":
+                        break;
+                    case "ThisIsNotMyHappyPlace":
+                        break;
+                    case "TheArchitect":
+                        break;
+                    case "SimplyIrresistible":
+                        break;
+                    case "TopoftheClass":
+                        break;
+                    case "TheDeepEnd":
+                        break;
+                    case "Groundskeeper":
+                        break;
+                    case "ColossalGardener":
+                        break;
+                    case "StrengthThroughDiversity":
+                        break;
+                    case "SquasherDowner":
+                        break;
+                    case "ALittleBitofTLC":
+                        break;
+                    case "WelcomeOneandAll":
+                        break;
+                    case "OneofEverything":
+                        break;
+                    case "HowMuchIsTheFish":
+                        break;
+                    case "ShipIt":
+                        break;
+                    case "ADifferentPlatformer":
+                        break;
+                    case "DrawMeLikeOneOfYourLiftBridges":
+                        break;
+                    case "ItsPronouncedKey":
+                        break;
+                    case "Pierfect":
+                        break;
+                }
         }
 
 
@@ -94,7 +255,31 @@ namespace AchievementManager
                 {
                     m_Setting.GetOptionDescLocaleID(nameof(AchievementManagerSettings.ResetAchievements)),
                     "Reset all achievements."
-                }
+                },
+                {
+                    m_Setting.GetOptionLabelLocaleID(nameof(AchievementManagerSettings.UnlockAllAchievements)),
+                    "Unlock All Achievements"
+                },
+                {
+                    m_Setting.GetOptionDescLocaleID(nameof(AchievementManagerSettings.UnlockAllAchievements)),
+                    "Unlock all achievements, setting progress to maximum for incremental achievements."
+                },
+                // {
+                //     m_Setting.GetOptionLabelLocaleID(nameof(AchievementManagerSettings.AchievementProgress)),
+                //     "Achievement Progress"
+                // },
+                // {
+                //     m_Setting.GetOptionDescLocaleID(nameof(AchievementManagerSettings.AchievementProgress)),
+                //     "Set the progress for the selected achievement (0-5)."
+                // },
+                // {
+                //     m_Setting.GetOptionLabelLocaleID(nameof(AchievementManagerSettings.SetAchievementProgress)),
+                //     "Set Progress"
+                // },
+                // {
+                //     m_Setting.GetOptionDescLocaleID(nameof(AchievementManagerSettings.SetAchievementProgress)),
+                //     "Set the progress for the selected achievement."
+                // }
             };
         }
 

@@ -6,7 +6,7 @@
         <!--The file where mod information which is required for publishing mod on PDX mods are stored-->
         <PublishConfigurationPath>Properties\PublishConfiguration.xml</PublishConfigurationPath>
         <Version>1.0.5</Version>
-        <TargetFrameworks>net48;net472</TargetFrameworks>
+        <TargetFramework>net472</TargetFramework>
     </PropertyGroup>
 
     <!--Imports must be after PropertyGroup block-->
@@ -15,10 +15,10 @@
 
     <ItemGroup>
         <Reference Include="Colossal.Localization">
-          <HintPath>G:\SteamLibrary\steamapps\common\Cities Skylines II\Cities2_Data\Managed\Colossal.Localization.dll</HintPath>
+            <HintPath>G:\SteamLibrary\steamapps\common\Cities Skylines II\Cities2_Data\Managed\Colossal.Localization.dll</HintPath>
         </Reference>
         <Reference Include="Colossal.PSI.Common">
-          <HintPath>G:\SteamLibrary\steamapps\common\Cities Skylines II\Cities2_Data\Managed\Colossal.PSI.Common.dll</HintPath>
+            <HintPath>G:\SteamLibrary\steamapps\common\Cities Skylines II\Cities2_Data\Managed\Colossal.PSI.Common.dll</HintPath>
         </Reference>
         <Reference Include="Game">
             <Private>false</Private>
@@ -67,7 +67,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Pictures\" />
+        <Folder Include="Pictures\"/>
     </ItemGroup>
 
 </Project>
