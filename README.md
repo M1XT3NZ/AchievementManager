@@ -10,6 +10,11 @@
 
 ## Installation
 
+### Planned
+   Change achievements individually may that be setting a 50/100 and so on
+
+## Installation
+
 ### 📦 Standard Installation
 Install via the in-game mod browser.
 
