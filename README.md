@@ -4,7 +4,8 @@
 
 ## Features
 
-- 🔓 Unlock individual achievements  
+- 🔓 Unlock individual achievements
+- ✔️ Enables the Ability to get Achievements with mods
 - ♻️ Reset all achievements  
 - 🎛️ Simple dropdown interface within the settings menu
 
