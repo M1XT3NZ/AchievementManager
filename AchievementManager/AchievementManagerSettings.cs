@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Colossal;
 using Colossal.IO.AssetDatabase;
@@ -49,19 +50,40 @@ namespace AchievementManager
         {
             set
             {
-                foreach (var achievement in PlatformManager.instance.EnumerateAchievements())
+                try
                 {
-                    if (achievement.isIncremental)
+                    foreach (var achievement in typeof(Achievements).GetFields())
                     {
-                        // Set the progress to the maximum for incremental achievements
-                        PlatformManager.instance.IndicateAchievementProgress(achievement.id, achievement.maxProgress,
-                            IndicateType.Absolute);
+                        Debug.LogWarning($"Unlocking {achievement.Name}");
+                        // Get the achievement attribute
+                        var attribute = achievement.GetCustomAttributes(typeof(AchievementAttribute), false)
+                            .FirstOrDefault() as AchievementAttribute;
+                        if (attribute == null)
+                        {
+                            Debug.LogWarning($"Field {achievement.Name} does not have an AchievementAttribute.");
+                            continue;
+                        }
+                        // Check if the achievement is incremental
+                        AchievementId achievementId = new AchievementId(attribute.id);
+                        if (attribute.unlocksAt > 0)
+                        {
+                            // Unlock the achievement and set its progress to the maximum
+                            PlatformManager.instance.UnlockAchievement(achievementId);
+                            PlatformManager.instance.IndicateAchievementProgress(achievementId, attribute.unlocksAt, IndicateType.Absolute);
+                            Debug.Log($"Unlocked achievement {attribute.internalName} with max progress {attribute.unlocksAt}.");
+                        }
+                        else
+                        {
+                            // Unlock the achievement without progress
+                            PlatformManager.instance.UnlockAchievement(achievementId);
+                            Debug.Log($"Unlocked achievement {attribute.internalName} without progress.");
+                        }
                     }
-                    else
-                    {
-                        // Unlock non-incremental achievements
-                        PlatformManager.instance.UnlockAchievement(achievement.id);
-                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    throw;
                 }
             }
         }
