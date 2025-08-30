@@ -24,28 +24,16 @@ namespace AchievementManager
                 LOG.Info($"Current mod asset at {asset.path}");
 
 
-            updateSystem.World.GetOrCreateSystemManaged<ModExtensions>();
-        }
-
-        public void OnDispose()
-        {
-            LOG.Info(nameof(OnDispose));
-        }
-    }
-
-    public partial class ModExtensions : GameSystemBase
-    {
-        protected override void OnUpdate()
-        {
-        }
-
-        protected override void OnGameLoadingComplete(Purpose purpose, GameMode mode)
-        {
             var myModSetting = new AchievementManagerSettings(Mod.Instance);
             myModSetting.RegisterInOptionsUI();
             GameManager.instance.localizationManager.AddSource("en-US", new LocaleEN(myModSetting));
             
             PlatformManager.instance.achievementsEnabled = true;
+        }
+
+        public void OnDispose()
+        {
+            LOG.Info(nameof(OnDispose));
         }
     }
 }
