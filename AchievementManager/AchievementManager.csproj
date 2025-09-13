@@ -15,10 +15,12 @@
 
     <ItemGroup>
         <Reference Include="Colossal.Localization">
-            <HintPath>G:\SteamLibrary\steamapps\common\Cities Skylines II\Cities2_Data\Managed\Colossal.Localization.dll</HintPath>
+            <HintPath>$(ManagedPath)\Colossal.Localization.dll</HintPath>
+			<Private>false</Private>    <!-- don't ship game DLLs -->
         </Reference>
         <Reference Include="Colossal.PSI.Common">
-            <HintPath>G:\SteamLibrary\steamapps\common\Cities Skylines II\Cities2_Data\Managed\Colossal.PSI.Common.dll</HintPath>
+            <HintPath>$(ManagedPath)\Colossal.PSI.Common.dll</HintPath>
+			<Private>false</Private>    <!-- don't ship game DLLs -->
         </Reference>
         <Reference Include="Game">
             <Private>false</Private>

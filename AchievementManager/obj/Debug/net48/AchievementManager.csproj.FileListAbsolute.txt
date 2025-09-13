@@ -1,0 +1,10 @@
+C:\Users\kldan\Source\Repos\AchievementManager\AchievementManager\bin\Debug\net48\AchievementManager.dll
+C:\Users\kldan\Source\Repos\AchievementManager\AchievementManager\bin\Debug\net48\AchievementManager.pdb
+C:\Users\kldan\Source\Repos\AchievementManager\AchievementManager\obj\Debug\net48\AchievementManager.csproj.AssemblyReference.cache
+C:\Users\kldan\Source\Repos\AchievementManager\AchievementManager\obj\Debug\net48\AchievementManager.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kldan\Source\Repos\AchievementManager\AchievementManager\obj\Debug\net48\AchievementManager.AssemblyInfoInputs.cache
+C:\Users\kldan\Source\Repos\AchievementManager\AchievementManager\obj\Debug\net48\AchievementManager.AssemblyInfo.cs
+C:\Users\kldan\Source\Repos\AchievementManager\AchievementManager\obj\Debug\net48\AchievementManager.csproj.CoreCompileInputs.cache
+C:\Users\kldan\Source\Repos\AchievementManager\AchievementManager\obj\Debug\net48\AchievementManager.sourcelink.json
+C:\Users\kldan\Source\Repos\AchievementManager\AchievementManager\obj\Debug\net48\AchievementManager.dll
+C:\Users\kldan\Source\Repos\AchievementManager\AchievementManager\obj\Debug\net48\AchievementManager.pdb
