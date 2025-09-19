@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AchievementManager")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.7.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.7+4def2ee7542148ab7a7761b5e313c6c442a3ac50")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.7+d7c1f62eeb0a5e1a80ccfa9a7a1b095e1ad18f2b")]
 [assembly: System.Reflection.AssemblyProductAttribute("AchievementManager")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AchievementManager")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.7.0")]

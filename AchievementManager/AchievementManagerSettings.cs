@@ -18,7 +18,9 @@ namespace AchievementManager
     [FileLocation("ModsSettings/AchievementManager/")]
     public class AchievementManagerSettings : ModSetting
     {
-
+        private int _achivementmaxprogres = 5;
+        private int _achivementminprogres = 0;
+        private bool _isprogress = false;
         public AchievementManagerSettings(IMod mod) : base(mod)
         {
             SetDefaults();

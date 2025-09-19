@@ -28,9 +28,7 @@ namespace AchievementManager
             myModSetting.RegisterInOptionsUI();
             GameManager.instance?.localizationManager?.AddSource("en-US", new LocaleEN(myModSetting));
 
-            // must use explicit null check for assignment
-            if (PlatformManager.instance != null)
-                PlatformManager.instance.achievementsEnabled = true;
+            PlatformManager.instance.achievementsEnabled = true;
 
         }
 
