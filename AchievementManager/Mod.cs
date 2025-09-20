@@ -1,6 +1,6 @@
 ﻿using Colossal.Logging;
 using Colossal.PSI.Common;
-using Colossal.Serialization.Entities;
+
 using Game;
 using Game.Modding;
 using Game.SceneFlow;
@@ -24,11 +24,12 @@ namespace AchievementManager
                 LOG.Info($"Current mod asset at {asset.path}");
 
 
-            var myModSetting = new AchievementManagerSettings(Mod.Instance);
+            var myModSetting = new AchievementManagerSettings(this);
             myModSetting.RegisterInOptionsUI();
             GameManager.instance.localizationManager.AddSource("en-US", new LocaleEN(myModSetting));
-            
+
             PlatformManager.instance.achievementsEnabled = true;
+
         }
 
         public void OnDispose()
