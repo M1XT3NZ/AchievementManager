@@ -24,7 +24,7 @@
     <!--Link to the forum post where the mod can be discussed-->
     <ForumLink Value=""/>
     <!--Version of the mod-->
-    <ModVersion Value="1.0.7"/>
+    <ModVersion Value="1.0.8"/>
     <!--Recommended version of the base game to use the mod-->
     <GameVersion Value="1.*.*"/>
     <!--Dependency for the mod, can be set multiple times-->
@@ -32,9 +32,12 @@
     <!--Required DLC, can be set multiple times. Supported values are "Landmark Buildings", "San Fransisco Set", "Beach Properties", "Urban Promenades", "Modern Architecture"-->
     <RequiredDLC Value=""/>
     <!--Change log for new version. Single line or multi line. Supports minimal markdown subset-->
-    <ChangeLog Value="Fix with onload crash"/>
-    <!--<ChangeLog>
-    </ChangeLog>-->
+    <ChangeLog>
+        #Changed
+        * Changed sorting to be alphabetical thanks to [@River-Mochi](https://github.com/River-Mochi)
+        #Fixed
+        * Publishing Colossal dlls were shipped with the mod, now fixed thanks to [@River-Mochi](https://github.com/River-Mochi)
+    </ChangeLog>
     <!--External link, can be set multiple times. supported types are "discord", "github", "youtube", "twitch", "x", "paypal", "patreon", "buymeacoffee", "kofi", "crowdin", "gitlab", "gofundme"-->
     <ExternalLink Type="github" Url="https://github.com/M1XT3NZ/AchievementManager"/>
 </Publish>
