@@ -20,7 +20,7 @@ Release/
 [Bb]uild/
 [Bb]uilds/
 
-# Editors (optional; include only if acceptable upstream)
+# Editors (optional: reduce noise uploads that are not needed)
 .vscode/
 .idea/
 
