@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+
 using Colossal;
 using Colossal.IO.AssetDatabase;
 using Colossal.PSI.Common;
+
 using Game.Achievements;
 using Game.Modding;
 using Game.Settings;
 using Game.UI.Widgets;
+
 using UnityEngine;
 
 namespace AchievementManager
@@ -18,7 +21,6 @@ namespace AchievementManager
         private int _achivementmaxprogres = 5;
         private int _achivementminprogres = 0;
         private bool _isprogress = false;
-
         public AchievementManagerSettings(IMod mod) : base(mod)
         {
             SetDefaults();
@@ -95,7 +97,7 @@ namespace AchievementManager
         // [SettingsUIButton]
         // public bool SetAchievementProgress
         // {
-        //     set 
+        //     set
         //     {
         //         if (SelectedAchievement != null && _isprogress)
         //         {
@@ -113,8 +115,8 @@ namespace AchievementManager
         //             // Ensure the progress is within the defined min and max range
         //             if(SelectedAchievement.isIncremental)
         //                 PlatformManager.instance.IndicateAchievementProgress(SelectedAchievement.id,AchievementProgress, IndicateType.Absolute);
-        //             
-        //             
+        //
+        //
         //         }
         //     }
         // }
@@ -126,7 +128,7 @@ namespace AchievementManager
         private void Test()
         {
             foreach (var field in typeof(Achievements).GetFields())
-                
+
                 switch (field.Name)
                 {
                     case "MyFirstCity":
@@ -229,13 +231,18 @@ namespace AchievementManager
 
         public DropdownItem<string>[] GetAchievementDropdownItems()
         {
-            return PlatformManager.instance.EnumerateAchievements()
+            // Sort achievements alphabetically by internalName, user-friendly list.
+            // (case-insensitive ordering so "alpha" and "Alpha" group together)
+            var items = PlatformManager.instance?.EnumerateAchievements()?
+                .OrderBy(a => a.internalName, StringComparer.OrdinalIgnoreCase)
                 .Select(a => new DropdownItem<string>
                 {
                     value = a.internalName,
                     displayName = a.internalName // or use localization if needed
                 })
                 .ToArray();
+
+            return items ?? Array.Empty<DropdownItem<string>>();    // null-safe path
         }
     }
 
@@ -253,7 +260,7 @@ namespace AchievementManager
         {
             return new Dictionary<string, string>
             {
-                { m_Setting.GetSettingsLocaleID(), "AchievementManager" },
+                { m_Setting.GetSettingsLocaleID(), "Achievement Manager" },     // space added so name shows nicely in Options list
                 {
                     m_Setting.GetOptionLabelLocaleID(nameof(AchievementManagerSettings.SelectedAchievementKey)),
                     "Selected Dropdown"

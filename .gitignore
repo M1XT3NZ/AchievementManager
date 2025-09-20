@@ -1,3 +1,29 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Copilot caches
+**/CopilotIndices/
+**/*.db
+**/*.db-shm
+**/*.db-wal
+
+# Build outputs (any depth)
+**/[Bb]in/
+**/[Oo]bj/
+Debug/
+Release/
+[xX]64/
+[Bb]uild/
+[Bb]uilds/
+
+# Editors (optional: reduce noise uploads that are not needed)
+.vscode/
+.idea/
+
 ﻿/.idea/.idea.AchievementManager/.idea/.gitignore
 /AchievementManager/obj/Release/net472/.NETFramework,Version=v4.7.2.AssemblyAttributes.cs
 /AchievementManager/obj/Release/net48/.NETFramework,Version=v4.8.AssemblyAttributes.cs

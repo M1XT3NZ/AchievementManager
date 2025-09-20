@@ -1,6 +1,7 @@
 ﻿using Colossal.Logging;
 using Colossal.PSI.Common;
 using Colossal.Serialization.Entities;
+
 using Game;
 using Game.Modding;
 using Game.SceneFlow;
@@ -27,8 +28,9 @@ namespace AchievementManager
             var myModSetting = new AchievementManagerSettings(Mod.Instance);
             myModSetting.RegisterInOptionsUI();
             GameManager.instance.localizationManager.AddSource("en-US", new LocaleEN(myModSetting));
-            
+
             PlatformManager.instance.achievementsEnabled = true;
+
         }
 
         public void OnDispose()
