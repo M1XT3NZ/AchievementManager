@@ -34,3 +34,8 @@ Install via the in-game mod browser.
 3. Use the dropdown to select an achievement.
 4. Click **Unlock Achievement** to unlock the selected one.
 5. Click **Reset Achievements** to clear all achievement progress.
+
+## License
+PNC-NR-YT v1.1 — personal use only, no redistribution. Modifying Allowed, YouTube videos (including monetized) using footage/output are allowed. See LICENSE.
+This will Not stay this way forever
+
