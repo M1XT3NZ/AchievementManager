@@ -36,6 +36,6 @@ Install via the in-game mod browser.
 5. Click **Reset Achievements** to clear all achievement progress.
 
 ## License
-PNC-NR-YT v1.1 — personal use only, no redistribution. YouTube videos (including monetized) using footage/output are allowed. See LICENSE.
+PNC-NR-YT v1.1 — personal use only, no redistribution. Modifying Allowed, YouTube videos (including monetized) using footage/output are allowed. See LICENSE.
 This will Not stay this way forever
 
