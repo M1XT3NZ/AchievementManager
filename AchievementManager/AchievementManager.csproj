@@ -6,7 +6,7 @@
         <!--The file where mod information which is required for publishing mod on PDX mods are stored-->
         <PublishConfigurationPath>Properties\PublishConfiguration.xml</PublishConfigurationPath>
         <Version>1.0.8</Version>
-        <TargetFramework>net472</TargetFramework>
+        <TargetFramework>net48</TargetFramework>
     </PropertyGroup>
 
     <!--Imports must be after PropertyGroup block-->
@@ -16,11 +16,11 @@
     <ItemGroup>
         <Reference Include="Colossal.Localization">
             <HintPath>$(ManagedPath)\Colossal.Localization.dll</HintPath>
-			<Private>false</Private>    <!-- don't ship game DLLs -->
+            <Private>false</Private>    <!-- don't ship game DLLs -->
         </Reference>
         <Reference Include="Colossal.PSI.Common">
             <HintPath>$(ManagedPath)\Colossal.PSI.Common.dll</HintPath>
-			<Private>false</Private>    <!-- don't ship game DLLs -->
+            <Private>false</Private>    <!-- don't ship game DLLs -->
         </Reference>
         <Reference Include="Game">
             <Private>false</Private>

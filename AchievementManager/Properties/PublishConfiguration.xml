@@ -8,12 +8,13 @@
     <!--Long description of the mod. Single line or multi line. Supports minimal markdown subset-->
     <!--LongDescription Value="This is a long description" /-->
     <LongDescription>
-# AchievementManager
+        # AchievementManager
 
-* This also enables you to get achievements with mods.
-* AchievementManager is a mod for Cities: Skylines that allows you to manage every Achievement in the game.
+        * This also enables you to get achievements with mods.
+        * AchievementManager is a mod for Cities: Skylines that allows you to manage every Achievement in the game.
 
-* We will at a later point let you just edit every single achievement individually with stepped progress and such ;).
+        * We will at a later point let you just edit every single achievement individually with stepped progress and
+        such ;).
     </LongDescription>
     <!--Thumbnail-->
     <Thumbnail Value="Properties/Thumbnail.png"/>
@@ -24,7 +25,7 @@
     <!--Link to the forum post where the mod can be discussed-->
     <ForumLink Value=""/>
     <!--Version of the mod-->
-    <ModVersion Value="1.0.8"/>
+    <ModVersion Value="1.0.9"/>
     <!--Recommended version of the base game to use the mod-->
     <GameVersion Value="1.*.*"/>
     <!--Dependency for the mod, can be set multiple times-->
@@ -33,10 +34,8 @@
     <RequiredDLC Value=""/>
     <!--Change log for new version. Single line or multi line. Supports minimal markdown subset-->
     <ChangeLog>
-        #Changed
-        * Changed sorting to be alphabetical thanks to [@River-Mochi](https://github.com/River-Mochi)
         #Fixed
-        * Publishing Colossal dlls were shipped with the mod, now fixed thanks to [@River-Mochi](https://github.com/River-Mochi)
+        * THe AchievementManager now works Properly and enables achievements, Unfortunately i broke it
     </ChangeLog>
     <!--External link, can be set multiple times. supported types are "discord", "github", "youtube", "twitch", "x", "paypal", "patreon", "buymeacoffee", "kofi", "crowdin", "gitlab", "gofundme"-->
     <ExternalLink Type="github" Url="https://github.com/M1XT3NZ/AchievementManager"/>

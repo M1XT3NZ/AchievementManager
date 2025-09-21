@@ -1,16 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
 using Colossal;
 using Colossal.IO.AssetDatabase;
 using Colossal.PSI.Common;
-
 using Game.Achievements;
 using Game.Modding;
 using Game.Settings;
 using Game.UI.Widgets;
-
 using UnityEngine;
 
 namespace AchievementManager
@@ -21,6 +18,7 @@ namespace AchievementManager
         private int _achivementmaxprogres = 5;
         private int _achivementminprogres = 0;
         private bool _isprogress = false;
+
         public AchievementManagerSettings(IMod mod) : base(mod)
         {
             SetDefaults();
@@ -65,14 +63,16 @@ namespace AchievementManager
                             Debug.LogWarning($"Field {achievement.Name} does not have an AchievementAttribute.");
                             continue;
                         }
+
                         // Check if the achievement is incremental
-                        AchievementId achievementId = new AchievementId(attribute.id);
+                        var achievementId = new AchievementId(attribute.id);
                         if (attribute.unlocksAt > 0)
                         {
                             // Unlock the achievement and set its progress to the maximum
                             PlatformManager.instance.UnlockAchievement(achievementId);
-                            PlatformManager.instance.IndicateAchievementProgress(achievementId, attribute.unlocksAt, IndicateType.Absolute);
-                            Debug.Log($"Unlocked achievement {attribute.internalName} with max progress {attribute.unlocksAt}.");
+                            PlatformManager.instance.IndicateAchievementProgress(achievementId, attribute.unlocksAt);
+                            Debug.Log(
+                                $"Unlocked achievement {attribute.internalName} with max progress {attribute.unlocksAt}.");
                         }
                         else
                         {
@@ -242,7 +242,7 @@ namespace AchievementManager
                 })
                 .ToArray();
 
-            return items ?? Array.Empty<DropdownItem<string>>();    // null-safe path
+            return items ?? Array.Empty<DropdownItem<string>>(); // null-safe path
         }
     }
 
@@ -260,7 +260,9 @@ namespace AchievementManager
         {
             return new Dictionary<string, string>
             {
-                { m_Setting.GetSettingsLocaleID(), "Achievement Manager" },     // space added so name shows nicely in Options list
+                {
+                    m_Setting.GetSettingsLocaleID(), "Achievement Manager"
+                }, // space added so name shows nicely in Options list
                 {
                     m_Setting.GetOptionLabelLocaleID(nameof(AchievementManagerSettings.SelectedAchievementKey)),
                     "Selected Dropdown"
@@ -292,7 +294,7 @@ namespace AchievementManager
                 {
                     m_Setting.GetOptionDescLocaleID(nameof(AchievementManagerSettings.UnlockAllAchievements)),
                     "Unlock all achievements, setting progress to maximum for incremental achievements."
-                },
+                }
                 // {
                 //     m_Setting.GetOptionLabelLocaleID(nameof(AchievementManagerSettings.AchievementProgress)),
                 //     "Achievement Progress"
